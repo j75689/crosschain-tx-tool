@@ -12,6 +12,8 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"math"
 	"math/big"
 	"strconv"
@@ -82,9 +84,11 @@ func gnfdCrossChainTx(key, chainId, to, url string, amount int64) error {
 	if err != nil {
 		return err
 	}
-	gnfdClient := gnfdclient.NewGreenfieldClientWithKeyManager(url, chainId, km)
+	gnfdClient := gnfdclient.NewGreenfieldClient(url, chainId, gnfdclient.WithKeyManager(km),
+		gnfdclient.WithGrpcDialOption(grpc.WithTransportCredentials(insecure.NewCredentials())))
+
 	msgTransferOut := bridgetypes.NewMsgTransferOut(km.GetAddr().String(), to, &sdk.Coin{
-		Denom:  "bnb",
+		Denom:  "BNB",
 		Amount: sdk.NewInt(amount),
 	})
 	response, err := gnfdClient.BroadcastTx([]sdk.Msg{msgTransferOut}, nil)
