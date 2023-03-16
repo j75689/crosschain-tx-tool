@@ -14,7 +14,7 @@ type BSCClient struct {
 func NewBSCClient(url, contractAddress string) *BSCClient {
 	rpcClient, err := ethclient.Dial(url)
 	if err != nil {
-		panic("new eth client error")
+		panic(err)
 	}
 
 	thClient, err := tokenhub.NewTokenhub(

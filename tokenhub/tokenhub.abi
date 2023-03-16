@@ -190,7 +190,7 @@
     },
     {
       "inputs": [],
-      "name": "APP_CHANNELID",
+      "name": "APP_CHANNEL_ID",
       "outputs": [
         {
           "internalType": "uint8",
@@ -203,12 +203,25 @@
     },
     {
       "inputs": [],
-      "name": "CODE_OK",
+      "name": "BUCKET_CHANNEL_ID",
       "outputs": [
         {
-          "internalType": "uint32",
+          "internalType": "uint8",
           "name": "",
-          "type": "uint32"
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BUCKET_HUB",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -229,20 +242,7 @@
     },
     {
       "inputs": [],
-      "name": "ERROR_FAIL_DECODE",
-      "outputs": [
-        {
-          "internalType": "uint32",
-          "name": "",
-          "type": "uint32"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "GOV_CHANNELID",
+      "name": "GOV_CHANNEL_ID",
       "outputs": [
         {
           "internalType": "uint8",
@@ -256,6 +256,32 @@
     {
       "inputs": [],
       "name": "GOV_HUB",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GROUP_CHANNEL_ID",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GROUP_HUB",
       "outputs": [
         {
           "internalType": "address",
@@ -287,6 +313,32 @@
           "internalType": "uint256",
           "name": "",
           "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "OBJECT_CHANNEL_ID",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "OBJECT_HUB",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -346,7 +398,7 @@
     },
     {
       "inputs": [],
-      "name": "TRANSFER_IN_CHANNELID",
+      "name": "TRANSFER_IN_CHANNEL_ID",
       "outputs": [
         {
           "internalType": "uint8",
@@ -411,7 +463,7 @@
     },
     {
       "inputs": [],
-      "name": "TRANSFER_OUT_CHANNELID",
+      "name": "TRANSFER_OUT_CHANNEL_ID",
       "outputs": [
         {
           "internalType": "uint8",
@@ -452,19 +504,6 @@
         }
       ],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "govHub",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {

@@ -9,6 +9,7 @@ import (
 	"github.com/alexgao001/crosschain-tx-tool/util"
 	gnfdclient "github.com/bnb-chain/greenfield-go-sdk/client/chain"
 	"github.com/bnb-chain/greenfield-go-sdk/keys"
+	"github.com/bnb-chain/greenfield-go-sdk/types"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
@@ -32,6 +33,7 @@ const (
 	flagToAddress            = "to"
 	flagAmount               = "amount"
 	flagTokenHubContractAddr = "contract-addr"
+	flagNumberOfTx           = "tx-count"
 
 	bsc  = "bsc"
 	gnfd = "gnfd"
@@ -45,6 +47,7 @@ func initFlags() {
 	flag.String(flagToAddress, "", "to")
 	flag.Int64(flagAmount, 0, "amount")
 	flag.String(flagTokenHubContractAddr, "", "smart contract address")
+	flag.Int64(flagNumberOfTx, 0, "number of tx in batch")
 
 	pflag.CommandLine.AddGoFlagSet(flag.CommandLine)
 	pflag.Parse()
@@ -62,15 +65,16 @@ func main() {
 	url := viper.GetString(flagUrl)
 	to := viper.GetString(flagToAddress)
 	amount := viper.GetInt64(flagAmount)
+	txCount := viper.GetInt64(flagNumberOfTx)
 
 	if fromChain == gnfd {
-		err := gnfdCrossChainTx(key, chainId, to, url, amount)
+		err := gnfdCrossChainTx(key, chainId, to, url, amount, txCount)
 		if err != nil {
 			panic(err)
 		}
 	} else if fromChain == bsc {
 		cAddr := viper.GetString(flagTokenHubContractAddr)
-		err := bscCrossChainTx(key, chainId, to, url, cAddr, amount)
+		err := bscCrossChainTx(key, chainId, to, url, cAddr, amount, txCount)
 		if err != nil {
 			panic(err)
 		}
@@ -79,7 +83,7 @@ func main() {
 	}
 }
 
-func gnfdCrossChainTx(key, chainId, to, url string, amount int64) error {
+func gnfdCrossChainTx(key, chainId, to, url string, amount, txCount int64) error {
 	km, err := keys.NewPrivateKeyManager(key)
 	if err != nil {
 		return err
@@ -91,15 +95,23 @@ func gnfdCrossChainTx(key, chainId, to, url string, amount int64) error {
 		Denom:  "BNB",
 		Amount: sdk.NewInt(amount),
 	})
-	response, err := gnfdClient.BroadcastTx([]sdk.Msg{msgTransferOut}, nil)
-	if err != nil {
-		return err
+
+	nonce, err := gnfdClient.GetNonce()
+	for i := 0; i < int(txCount); i++ {
+		txOpt := &types.TxOption{
+			Nonce: nonce,
+		}
+		response, err := gnfdClient.BroadcastTx([]sdk.Msg{msgTransferOut}, txOpt)
+		if err != nil {
+			return err
+		}
+		nonce++
+		fmt.Printf(response.TxResponse.String())
 	}
-	fmt.Printf(response.TxResponse.String())
 	return nil
 }
 
-func bscCrossChainTx(key, chainId, to, url, cAddr string, amount int64) error {
+func bscCrossChainTx(key, chainId, to, url, cAddr string, amount, txCount int64) error {
 	chainIdInt, err := strconv.Atoi(chainId)
 	if err != nil {
 		return err
@@ -117,21 +129,23 @@ func bscCrossChainTx(key, chainId, to, url, cAddr string, amount int64) error {
 	if err != nil {
 		return err
 	}
-
-	txOpts, err := getTransactor(privKey, nonce, big.NewInt(int64(chainIdInt)), amount)
-	if err != nil {
-		return err
+	for i := 0; i < int(txCount); i++ {
+		txOpts, err := getTransactor(privKey, nonce, big.NewInt(int64(chainIdInt)), amount)
+		if err != nil {
+			return err
+		}
+		fmt.Printf("tranfer amount %d bnb to addres %s\n", amount, to)
+		res, err := bscClient.ThClient.TransferOut(
+			txOpts,
+			common.HexToAddress(to),
+			big.NewInt(amount),
+		)
+		if err != nil {
+			return err
+		}
+		nonce++
+		fmt.Printf("tx hash %s\n", res.Hash().String())
 	}
-	fmt.Printf("tranfer amount %d bnb to addres %s\n", amount, to)
-	res, err := bscClient.ThClient.TransferOut(
-		txOpts,
-		common.HexToAddress(to),
-		big.NewInt(amount),
-	)
-	if err != nil {
-		return err
-	}
-	fmt.Printf("tx hash %s\n", res.Hash().String())
 	return nil
 }
 

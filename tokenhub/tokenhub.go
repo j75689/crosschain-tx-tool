@@ -31,7 +31,7 @@ var (
 
 // TokenhubMetaData contains all meta data concerning the Tokenhub contract.
 var TokenhubMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"value\",\"type\":\"bytes\"}],\"name\":\"ParamChange\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"ReceiveDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"refundAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"status\",\"type\":\"uint32\"}],\"name\":\"RefundFailure\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"refundAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"status\",\"type\":\"uint32\"}],\"name\":\"RefundSuccess\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"RewardTo\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"refundAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TransferInSuccess\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"senderAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"relayFee\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ackRelayFee\",\"type\":\"uint256\"}],\"name\":\"TransferOutSuccess\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"UnexpectedPackage\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"APP_CHANNELID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CODE_OK\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CROSS_CHAIN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ERROR_FAIL_DECODE\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GOV_CHANNELID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GOV_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"LIGHT_CLIENT\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_GAS_FOR_TRANSFER_BNB\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROXY_ADMIN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RELAYER_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"REWARD_UPPER_LIMIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_CHANNELID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_FAILURE_INSUFFICIENT_BALANCE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_FAILURE_NON_PAYABLE_RECIPIENT\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_FAILURE_UNKNOWN\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_SUCCESS\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_OUT_CHANNELID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ackRelayFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"claimRelayFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"govHub\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"handleAckPackage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"handleFailAckPackage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"handleSynPackage\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"relayFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferOut\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"value\",\"type\":\"bytes\"}],\"name\":\"ParamChange\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"ReceiveDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"refundAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"status\",\"type\":\"uint32\"}],\"name\":\"RefundFailure\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"refundAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint32\",\"name\":\"status\",\"type\":\"uint32\"}],\"name\":\"RefundSuccess\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"RewardTo\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"refundAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TransferInSuccess\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"senderAddr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"relayFee\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ackRelayFee\",\"type\":\"uint256\"}],\"name\":\"TransferOutSuccess\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"UnexpectedPackage\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"APP_CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"BUCKET_CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"BUCKET_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CROSS_CHAIN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GOV_CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GOV_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GROUP_CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GROUP_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"LIGHT_CLIENT\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_GAS_FOR_TRANSFER_BNB\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OBJECT_CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OBJECT_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROXY_ADMIN\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RELAYER_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"REWARD_UPPER_LIMIT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_HUB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_FAILURE_INSUFFICIENT_BALANCE\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_FAILURE_NON_PAYABLE_RECIPIENT\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_FAILURE_UNKNOWN\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_IN_SUCCESS\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TRANSFER_OUT_CHANNEL_ID\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ackRelayFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"claimRelayFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"handleAckPackage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"handleFailAckPackage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"channelId\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"msgBytes\",\"type\":\"bytes\"}],\"name\":\"handleSynPackage\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"relayFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferOut\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}]",
 }
 
 // TokenhubABI is the input ABI used to generate the binding from.
@@ -180,12 +180,12 @@ func (_Tokenhub *TokenhubTransactorRaw) Transact(opts *bind.TransactOpts, method
 	return _Tokenhub.Contract.contract.Transact(opts, method, params...)
 }
 
-// APPCHANNELID is a free data retrieval call binding the contract method 0x63ee4ac4.
+// APPCHANNELID is a free data retrieval call binding the contract method 0x1124de3a.
 //
-// Solidity: function APP_CHANNELID() view returns(uint8)
+// Solidity: function APP_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCaller) APPCHANNELID(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Tokenhub.contract.Call(opts, &out, "APP_CHANNELID")
+	err := _Tokenhub.contract.Call(opts, &out, "APP_CHANNEL_ID")
 
 	if err != nil {
 		return *new(uint8), err
@@ -197,49 +197,80 @@ func (_Tokenhub *TokenhubCaller) APPCHANNELID(opts *bind.CallOpts) (uint8, error
 
 }
 
-// APPCHANNELID is a free data retrieval call binding the contract method 0x63ee4ac4.
+// APPCHANNELID is a free data retrieval call binding the contract method 0x1124de3a.
 //
-// Solidity: function APP_CHANNELID() view returns(uint8)
+// Solidity: function APP_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubSession) APPCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.APPCHANNELID(&_Tokenhub.CallOpts)
 }
 
-// APPCHANNELID is a free data retrieval call binding the contract method 0x63ee4ac4.
+// APPCHANNELID is a free data retrieval call binding the contract method 0x1124de3a.
 //
-// Solidity: function APP_CHANNELID() view returns(uint8)
+// Solidity: function APP_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCallerSession) APPCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.APPCHANNELID(&_Tokenhub.CallOpts)
 }
 
-// CODEOK is a free data retrieval call binding the contract method 0xab51bb96.
+// BUCKETCHANNELID is a free data retrieval call binding the contract method 0x73f1e3c3.
 //
-// Solidity: function CODE_OK() view returns(uint32)
-func (_Tokenhub *TokenhubCaller) CODEOK(opts *bind.CallOpts) (uint32, error) {
+// Solidity: function BUCKET_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubCaller) BUCKETCHANNELID(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Tokenhub.contract.Call(opts, &out, "CODE_OK")
+	err := _Tokenhub.contract.Call(opts, &out, "BUCKET_CHANNEL_ID")
 
 	if err != nil {
-		return *new(uint32), err
+		return *new(uint8), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(uint32)).(*uint32)
+	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
 
 	return out0, err
 
 }
 
-// CODEOK is a free data retrieval call binding the contract method 0xab51bb96.
+// BUCKETCHANNELID is a free data retrieval call binding the contract method 0x73f1e3c3.
 //
-// Solidity: function CODE_OK() view returns(uint32)
-func (_Tokenhub *TokenhubSession) CODEOK() (uint32, error) {
-	return _Tokenhub.Contract.CODEOK(&_Tokenhub.CallOpts)
+// Solidity: function BUCKET_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubSession) BUCKETCHANNELID() (uint8, error) {
+	return _Tokenhub.Contract.BUCKETCHANNELID(&_Tokenhub.CallOpts)
 }
 
-// CODEOK is a free data retrieval call binding the contract method 0xab51bb96.
+// BUCKETCHANNELID is a free data retrieval call binding the contract method 0x73f1e3c3.
 //
-// Solidity: function CODE_OK() view returns(uint32)
-func (_Tokenhub *TokenhubCallerSession) CODEOK() (uint32, error) {
-	return _Tokenhub.Contract.CODEOK(&_Tokenhub.CallOpts)
+// Solidity: function BUCKET_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubCallerSession) BUCKETCHANNELID() (uint8, error) {
+	return _Tokenhub.Contract.BUCKETCHANNELID(&_Tokenhub.CallOpts)
+}
+
+// BUCKETHUB is a free data retrieval call binding the contract method 0x7afffdd2.
+//
+// Solidity: function BUCKET_HUB() view returns(address)
+func (_Tokenhub *TokenhubCaller) BUCKETHUB(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _Tokenhub.contract.Call(opts, &out, "BUCKET_HUB")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// BUCKETHUB is a free data retrieval call binding the contract method 0x7afffdd2.
+//
+// Solidity: function BUCKET_HUB() view returns(address)
+func (_Tokenhub *TokenhubSession) BUCKETHUB() (common.Address, error) {
+	return _Tokenhub.Contract.BUCKETHUB(&_Tokenhub.CallOpts)
+}
+
+// BUCKETHUB is a free data retrieval call binding the contract method 0x7afffdd2.
+//
+// Solidity: function BUCKET_HUB() view returns(address)
+func (_Tokenhub *TokenhubCallerSession) BUCKETHUB() (common.Address, error) {
+	return _Tokenhub.Contract.BUCKETHUB(&_Tokenhub.CallOpts)
 }
 
 // CROSSCHAIN is a free data retrieval call binding the contract method 0x557cf477.
@@ -273,43 +304,12 @@ func (_Tokenhub *TokenhubCallerSession) CROSSCHAIN() (common.Address, error) {
 	return _Tokenhub.Contract.CROSSCHAIN(&_Tokenhub.CallOpts)
 }
 
-// ERRORFAILDECODE is a free data retrieval call binding the contract method 0x0bee7a67.
+// GOVCHANNELID is a free data retrieval call binding the contract method 0x81d91480.
 //
-// Solidity: function ERROR_FAIL_DECODE() view returns(uint32)
-func (_Tokenhub *TokenhubCaller) ERRORFAILDECODE(opts *bind.CallOpts) (uint32, error) {
-	var out []interface{}
-	err := _Tokenhub.contract.Call(opts, &out, "ERROR_FAIL_DECODE")
-
-	if err != nil {
-		return *new(uint32), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(uint32)).(*uint32)
-
-	return out0, err
-
-}
-
-// ERRORFAILDECODE is a free data retrieval call binding the contract method 0x0bee7a67.
-//
-// Solidity: function ERROR_FAIL_DECODE() view returns(uint32)
-func (_Tokenhub *TokenhubSession) ERRORFAILDECODE() (uint32, error) {
-	return _Tokenhub.Contract.ERRORFAILDECODE(&_Tokenhub.CallOpts)
-}
-
-// ERRORFAILDECODE is a free data retrieval call binding the contract method 0x0bee7a67.
-//
-// Solidity: function ERROR_FAIL_DECODE() view returns(uint32)
-func (_Tokenhub *TokenhubCallerSession) ERRORFAILDECODE() (uint32, error) {
-	return _Tokenhub.Contract.ERRORFAILDECODE(&_Tokenhub.CallOpts)
-}
-
-// GOVCHANNELID is a free data retrieval call binding the contract method 0x96713da9.
-//
-// Solidity: function GOV_CHANNELID() view returns(uint8)
+// Solidity: function GOV_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCaller) GOVCHANNELID(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Tokenhub.contract.Call(opts, &out, "GOV_CHANNELID")
+	err := _Tokenhub.contract.Call(opts, &out, "GOV_CHANNEL_ID")
 
 	if err != nil {
 		return *new(uint8), err
@@ -321,16 +321,16 @@ func (_Tokenhub *TokenhubCaller) GOVCHANNELID(opts *bind.CallOpts) (uint8, error
 
 }
 
-// GOVCHANNELID is a free data retrieval call binding the contract method 0x96713da9.
+// GOVCHANNELID is a free data retrieval call binding the contract method 0x81d91480.
 //
-// Solidity: function GOV_CHANNELID() view returns(uint8)
+// Solidity: function GOV_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubSession) GOVCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.GOVCHANNELID(&_Tokenhub.CallOpts)
 }
 
-// GOVCHANNELID is a free data retrieval call binding the contract method 0x96713da9.
+// GOVCHANNELID is a free data retrieval call binding the contract method 0x81d91480.
 //
-// Solidity: function GOV_CHANNELID() view returns(uint8)
+// Solidity: function GOV_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCallerSession) GOVCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.GOVCHANNELID(&_Tokenhub.CallOpts)
 }
@@ -364,6 +364,68 @@ func (_Tokenhub *TokenhubSession) GOVHUB() (common.Address, error) {
 // Solidity: function GOV_HUB() view returns(address)
 func (_Tokenhub *TokenhubCallerSession) GOVHUB() (common.Address, error) {
 	return _Tokenhub.Contract.GOVHUB(&_Tokenhub.CallOpts)
+}
+
+// GROUPCHANNELID is a free data retrieval call binding the contract method 0xe02e86b0.
+//
+// Solidity: function GROUP_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubCaller) GROUPCHANNELID(opts *bind.CallOpts) (uint8, error) {
+	var out []interface{}
+	err := _Tokenhub.contract.Call(opts, &out, "GROUP_CHANNEL_ID")
+
+	if err != nil {
+		return *new(uint8), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+
+	return out0, err
+
+}
+
+// GROUPCHANNELID is a free data retrieval call binding the contract method 0xe02e86b0.
+//
+// Solidity: function GROUP_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubSession) GROUPCHANNELID() (uint8, error) {
+	return _Tokenhub.Contract.GROUPCHANNELID(&_Tokenhub.CallOpts)
+}
+
+// GROUPCHANNELID is a free data retrieval call binding the contract method 0xe02e86b0.
+//
+// Solidity: function GROUP_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubCallerSession) GROUPCHANNELID() (uint8, error) {
+	return _Tokenhub.Contract.GROUPCHANNELID(&_Tokenhub.CallOpts)
+}
+
+// GROUPHUB is a free data retrieval call binding the contract method 0x46934fc8.
+//
+// Solidity: function GROUP_HUB() view returns(address)
+func (_Tokenhub *TokenhubCaller) GROUPHUB(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _Tokenhub.contract.Call(opts, &out, "GROUP_HUB")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// GROUPHUB is a free data retrieval call binding the contract method 0x46934fc8.
+//
+// Solidity: function GROUP_HUB() view returns(address)
+func (_Tokenhub *TokenhubSession) GROUPHUB() (common.Address, error) {
+	return _Tokenhub.Contract.GROUPHUB(&_Tokenhub.CallOpts)
+}
+
+// GROUPHUB is a free data retrieval call binding the contract method 0x46934fc8.
+//
+// Solidity: function GROUP_HUB() view returns(address)
+func (_Tokenhub *TokenhubCallerSession) GROUPHUB() (common.Address, error) {
+	return _Tokenhub.Contract.GROUPHUB(&_Tokenhub.CallOpts)
 }
 
 // LIGHTCLIENT is a free data retrieval call binding the contract method 0xe613ae00.
@@ -426,6 +488,68 @@ func (_Tokenhub *TokenhubSession) MAXGASFORTRANSFERBNB() (*big.Int, error) {
 // Solidity: function MAX_GAS_FOR_TRANSFER_BNB() view returns(uint256)
 func (_Tokenhub *TokenhubCallerSession) MAXGASFORTRANSFERBNB() (*big.Int, error) {
 	return _Tokenhub.Contract.MAXGASFORTRANSFERBNB(&_Tokenhub.CallOpts)
+}
+
+// OBJECTCHANNELID is a free data retrieval call binding the contract method 0xeac78b33.
+//
+// Solidity: function OBJECT_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubCaller) OBJECTCHANNELID(opts *bind.CallOpts) (uint8, error) {
+	var out []interface{}
+	err := _Tokenhub.contract.Call(opts, &out, "OBJECT_CHANNEL_ID")
+
+	if err != nil {
+		return *new(uint8), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+
+	return out0, err
+
+}
+
+// OBJECTCHANNELID is a free data retrieval call binding the contract method 0xeac78b33.
+//
+// Solidity: function OBJECT_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubSession) OBJECTCHANNELID() (uint8, error) {
+	return _Tokenhub.Contract.OBJECTCHANNELID(&_Tokenhub.CallOpts)
+}
+
+// OBJECTCHANNELID is a free data retrieval call binding the contract method 0xeac78b33.
+//
+// Solidity: function OBJECT_CHANNEL_ID() view returns(uint8)
+func (_Tokenhub *TokenhubCallerSession) OBJECTCHANNELID() (uint8, error) {
+	return _Tokenhub.Contract.OBJECTCHANNELID(&_Tokenhub.CallOpts)
+}
+
+// OBJECTHUB is a free data retrieval call binding the contract method 0x7d2e3084.
+//
+// Solidity: function OBJECT_HUB() view returns(address)
+func (_Tokenhub *TokenhubCaller) OBJECTHUB(opts *bind.CallOpts) (common.Address, error) {
+	var out []interface{}
+	err := _Tokenhub.contract.Call(opts, &out, "OBJECT_HUB")
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// OBJECTHUB is a free data retrieval call binding the contract method 0x7d2e3084.
+//
+// Solidity: function OBJECT_HUB() view returns(address)
+func (_Tokenhub *TokenhubSession) OBJECTHUB() (common.Address, error) {
+	return _Tokenhub.Contract.OBJECTHUB(&_Tokenhub.CallOpts)
+}
+
+// OBJECTHUB is a free data retrieval call binding the contract method 0x7d2e3084.
+//
+// Solidity: function OBJECT_HUB() view returns(address)
+func (_Tokenhub *TokenhubCallerSession) OBJECTHUB() (common.Address, error) {
+	return _Tokenhub.Contract.OBJECTHUB(&_Tokenhub.CallOpts)
 }
 
 // PROXYADMIN is a free data retrieval call binding the contract method 0xed9bc82a.
@@ -552,12 +676,12 @@ func (_Tokenhub *TokenhubCallerSession) TOKENHUB() (common.Address, error) {
 	return _Tokenhub.Contract.TOKENHUB(&_Tokenhub.CallOpts)
 }
 
-// TRANSFERINCHANNELID is a free data retrieval call binding the contract method 0x70fd5bad.
+// TRANSFERINCHANNELID is a free data retrieval call binding the contract method 0xcc12eabc.
 //
-// Solidity: function TRANSFER_IN_CHANNELID() view returns(uint8)
+// Solidity: function TRANSFER_IN_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCaller) TRANSFERINCHANNELID(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Tokenhub.contract.Call(opts, &out, "TRANSFER_IN_CHANNELID")
+	err := _Tokenhub.contract.Call(opts, &out, "TRANSFER_IN_CHANNEL_ID")
 
 	if err != nil {
 		return *new(uint8), err
@@ -569,16 +693,16 @@ func (_Tokenhub *TokenhubCaller) TRANSFERINCHANNELID(opts *bind.CallOpts) (uint8
 
 }
 
-// TRANSFERINCHANNELID is a free data retrieval call binding the contract method 0x70fd5bad.
+// TRANSFERINCHANNELID is a free data retrieval call binding the contract method 0xcc12eabc.
 //
-// Solidity: function TRANSFER_IN_CHANNELID() view returns(uint8)
+// Solidity: function TRANSFER_IN_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubSession) TRANSFERINCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.TRANSFERINCHANNELID(&_Tokenhub.CallOpts)
 }
 
-// TRANSFERINCHANNELID is a free data retrieval call binding the contract method 0x70fd5bad.
+// TRANSFERINCHANNELID is a free data retrieval call binding the contract method 0xcc12eabc.
 //
-// Solidity: function TRANSFER_IN_CHANNELID() view returns(uint8)
+// Solidity: function TRANSFER_IN_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCallerSession) TRANSFERINCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.TRANSFERINCHANNELID(&_Tokenhub.CallOpts)
 }
@@ -707,12 +831,12 @@ func (_Tokenhub *TokenhubCallerSession) TRANSFERINSUCCESS() (uint8, error) {
 	return _Tokenhub.Contract.TRANSFERINSUCCESS(&_Tokenhub.CallOpts)
 }
 
-// TRANSFEROUTCHANNELID is a free data retrieval call binding the contract method 0xfc3e5908.
+// TRANSFEROUTCHANNELID is a free data retrieval call binding the contract method 0x618d569c.
 //
-// Solidity: function TRANSFER_OUT_CHANNELID() view returns(uint8)
+// Solidity: function TRANSFER_OUT_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCaller) TRANSFEROUTCHANNELID(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Tokenhub.contract.Call(opts, &out, "TRANSFER_OUT_CHANNELID")
+	err := _Tokenhub.contract.Call(opts, &out, "TRANSFER_OUT_CHANNEL_ID")
 
 	if err != nil {
 		return *new(uint8), err
@@ -724,16 +848,16 @@ func (_Tokenhub *TokenhubCaller) TRANSFEROUTCHANNELID(opts *bind.CallOpts) (uint
 
 }
 
-// TRANSFEROUTCHANNELID is a free data retrieval call binding the contract method 0xfc3e5908.
+// TRANSFEROUTCHANNELID is a free data retrieval call binding the contract method 0x618d569c.
 //
-// Solidity: function TRANSFER_OUT_CHANNELID() view returns(uint8)
+// Solidity: function TRANSFER_OUT_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubSession) TRANSFEROUTCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.TRANSFEROUTCHANNELID(&_Tokenhub.CallOpts)
 }
 
-// TRANSFEROUTCHANNELID is a free data retrieval call binding the contract method 0xfc3e5908.
+// TRANSFEROUTCHANNELID is a free data retrieval call binding the contract method 0x618d569c.
 //
-// Solidity: function TRANSFER_OUT_CHANNELID() view returns(uint8)
+// Solidity: function TRANSFER_OUT_CHANNEL_ID() view returns(uint8)
 func (_Tokenhub *TokenhubCallerSession) TRANSFEROUTCHANNELID() (uint8, error) {
 	return _Tokenhub.Contract.TRANSFEROUTCHANNELID(&_Tokenhub.CallOpts)
 }
@@ -767,37 +891,6 @@ func (_Tokenhub *TokenhubSession) AckRelayFee() (*big.Int, error) {
 // Solidity: function ackRelayFee() view returns(uint256)
 func (_Tokenhub *TokenhubCallerSession) AckRelayFee() (*big.Int, error) {
 	return _Tokenhub.Contract.AckRelayFee(&_Tokenhub.CallOpts)
-}
-
-// GovHub is a free data retrieval call binding the contract method 0x3f9c44ec.
-//
-// Solidity: function govHub() view returns(address)
-func (_Tokenhub *TokenhubCaller) GovHub(opts *bind.CallOpts) (common.Address, error) {
-	var out []interface{}
-	err := _Tokenhub.contract.Call(opts, &out, "govHub")
-
-	if err != nil {
-		return *new(common.Address), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
-
-	return out0, err
-
-}
-
-// GovHub is a free data retrieval call binding the contract method 0x3f9c44ec.
-//
-// Solidity: function govHub() view returns(address)
-func (_Tokenhub *TokenhubSession) GovHub() (common.Address, error) {
-	return _Tokenhub.Contract.GovHub(&_Tokenhub.CallOpts)
-}
-
-// GovHub is a free data retrieval call binding the contract method 0x3f9c44ec.
-//
-// Solidity: function govHub() view returns(address)
-func (_Tokenhub *TokenhubCallerSession) GovHub() (common.Address, error) {
-	return _Tokenhub.Contract.GovHub(&_Tokenhub.CallOpts)
 }
 
 // RelayFee is a free data retrieval call binding the contract method 0x71d30863.
