@@ -5,6 +5,10 @@ import (
 	"crypto/ecdsa"
 	"flag"
 	"fmt"
+	"math"
+	"math/big"
+	"strconv"
+
 	"github.com/alexgao001/crosschain-tx-tool/client"
 	"github.com/alexgao001/crosschain-tx-tool/util"
 	gnfdclient "github.com/bnb-chain/greenfield-go-sdk/client/chain"
@@ -15,9 +19,6 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"math"
-	"math/big"
-	"strconv"
 
 	bridgetypes "github.com/bnb-chain/greenfield/x/bridge/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -45,7 +46,7 @@ func initFlags() {
 	flag.String(flagChainId, "", "chain id")
 	flag.String(flagUrl, "", "url")
 	flag.String(flagToAddress, "", "to")
-	flag.Int64(flagAmount, 0, "amount")
+	flag.String(flagAmount, "0", "amount")
 	flag.String(flagTokenHubContractAddr, "", "smart contract address")
 	flag.Int64(flagNumberOfTx, 0, "number of tx in batch")
 
@@ -64,7 +65,8 @@ func main() {
 	chainId := viper.GetString(flagChainId)
 	url := viper.GetString(flagUrl)
 	to := viper.GetString(flagToAddress)
-	amount := viper.GetInt64(flagAmount)
+	amountStr := viper.GetString(flagAmount)
+	amount, _ := new(big.Int).SetString(amountStr, 10)
 	txCount := viper.GetInt64(flagNumberOfTx)
 
 	if fromChain == gnfd {
@@ -83,7 +85,7 @@ func main() {
 	}
 }
 
-func gnfdCrossChainTx(key, chainId, to, url string, amount, txCount int64) error {
+func gnfdCrossChainTx(key, chainId, to, url string, amount *big.Int, txCount int64) error {
 	km, err := keys.NewPrivateKeyManager(key)
 	if err != nil {
 		return err
@@ -93,10 +95,13 @@ func gnfdCrossChainTx(key, chainId, to, url string, amount, txCount int64) error
 
 	msgTransferOut := bridgetypes.NewMsgTransferOut(km.GetAddr().String(), to, &sdk.Coin{
 		Denom:  "BNB",
-		Amount: sdk.NewInt(amount),
+		Amount: sdk.NewIntFromBigInt(amount),
 	})
 
 	nonce, err := gnfdClient.GetNonce()
+	if err != nil {
+		return err
+	}
 	for i := 0; i < int(txCount); i++ {
 		txOpt := &types.TxOption{
 			Nonce: nonce,
@@ -106,12 +111,12 @@ func gnfdCrossChainTx(key, chainId, to, url string, amount, txCount int64) error
 			return err
 		}
 		nonce++
-		fmt.Printf(response.TxResponse.String())
+		fmt.Println(response.TxResponse.String())
 	}
 	return nil
 }
 
-func bscCrossChainTx(key, chainId, to, url, cAddr string, amount, txCount int64) error {
+func bscCrossChainTx(key, chainId, to, url, cAddr string, amount *big.Int, txCount int64) error {
 	chainIdInt, err := strconv.Atoi(chainId)
 	if err != nil {
 		return err
@@ -138,7 +143,7 @@ func bscCrossChainTx(key, chainId, to, url, cAddr string, amount, txCount int64)
 		res, err := bscClient.ThClient.TransferOut(
 			txOpts,
 			common.HexToAddress(to),
-			big.NewInt(amount),
+			amount,
 		)
 		if err != nil {
 			return err
@@ -149,7 +154,7 @@ func bscCrossChainTx(key, chainId, to, url, cAddr string, amount, txCount int64)
 	return nil
 }
 
-func getTransactor(privateKey *ecdsa.PrivateKey, nonce uint64, chainID *big.Int, amount int64) (*bind.TransactOpts, error) {
+func getTransactor(privateKey *ecdsa.PrivateKey, nonce uint64, chainID *big.Int, amount *big.Int) (*bind.TransactOpts, error) {
 	txOpts, err := bind.NewKeyedTransactorWithChainID(privateKey, chainID)
 	if err != nil {
 		return nil, err
@@ -157,7 +162,7 @@ func getTransactor(privateKey *ecdsa.PrivateKey, nonce uint64, chainID *big.Int,
 	txOpts.Nonce = big.NewInt(int64(nonce))
 	relayFee := 4 * math.Pow(10, 15)
 	f := int64(relayFee)
-	txOpts.Value = big.NewInt(amount + f)
+	txOpts.Value = new(big.Int).Add(amount, big.NewInt(f))
 	txOpts.GasLimit = 4700000
 	txOpts.GasPrice = big.NewInt(20000000000)
 	return txOpts, nil
