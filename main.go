@@ -8,20 +8,20 @@ import (
 	"math"
 	"math/big"
 	"strconv"
+	"time"
 
 	"github.com/alexgao001/crosschain-tx-tool/client"
 	"github.com/alexgao001/crosschain-tx-tool/util"
-	gnfdclient "github.com/bnb-chain/greenfield-go-sdk/client/chain"
-	"github.com/bnb-chain/greenfield-go-sdk/keys"
-	"github.com/bnb-chain/greenfield-go-sdk/types"
+	gnfdclient "github.com/bnb-chain/greenfield/sdk/client"
+	"github.com/bnb-chain/greenfield/sdk/keys"
+	"github.com/bnb-chain/greenfield/sdk/types"
+	bridgetypes "github.com/bnb-chain/greenfield/x/bridge/types"
+	_ "github.com/coinbase/rosetta-sdk-go/types"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/types/tx"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
-
-	bridgetypes "github.com/bnb-chain/greenfield/x/bridge/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
@@ -90,8 +90,7 @@ func gnfdCrossChainTx(key, chainId, to, url string, amount *big.Int, txCount int
 	if err != nil {
 		return err
 	}
-	gnfdClient := gnfdclient.NewGreenfieldClient(url, chainId, gnfdclient.WithKeyManager(km),
-		gnfdclient.WithGrpcDialOption(grpc.WithTransportCredentials(insecure.NewCredentials())))
+	gnfdClient, err := gnfdclient.NewGreenfieldClient(url, chainId, gnfdclient.WithKeyManager(km))
 
 	msgTransferOut := bridgetypes.NewMsgTransferOut(km.GetAddr().String(), to, &sdk.Coin{
 		Denom:  "BNB",
@@ -102,14 +101,21 @@ func gnfdCrossChainTx(key, chainId, to, url string, amount *big.Int, txCount int
 	if err != nil {
 		return err
 	}
+	mode := tx.BroadcastMode_BROADCAST_MODE_ASYNC
 	for i := 0; i < int(txCount); i++ {
 		txOpt := &types.TxOption{
 			Nonce: nonce,
+			Mode:  &mode,
 		}
-		response, err := gnfdClient.BroadcastTx([]sdk.Msg{msgTransferOut}, txOpt)
+		start := time.Now().UnixNano()
+		response, err := gnfdClient.BroadcastTx(context.Background(), []sdk.Msg{msgTransferOut}, txOpt)
 		if err != nil {
 			return err
 		}
+		end := time.Now().UnixNano()
+		elapsed := (end - start) / 1000000
+		fmt.Printf("elapshed time is %d", elapsed)
+
 		nonce++
 		fmt.Println(response.TxResponse.String())
 	}
