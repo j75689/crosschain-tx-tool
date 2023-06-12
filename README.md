@@ -12,7 +12,7 @@ make build
 
 gnfd -> bsc replace with your values
 ```shell script
-./build/crossd --from-chain gnfd --key 31d8f71a3f631bb90fc980a7bb631a7314b8bf9e2c78f3833f7afb9f1d91884d --chain-id greenfield_9000-121 --url http://127.0.0.1:26750 --to 0x76d244CE05c3De4BbC6fDd7F56379B145709ade9 --amount 100 --tx-count 1
+./build/crossd --from-chain gnfd --key 050d71756662fd0de665c95e1300b2692dcf36d9caeb1e163172adff4d7c18d3 --chain-id greenfield_9000-121 --url http://127.0.0.1:26750 --to 0x76d244CE05c3De4BbC6fDd7F56379B145709ade9 --amount 100 --tx-count 1
 
 ````
 bsc -> gnfd replace with your values
