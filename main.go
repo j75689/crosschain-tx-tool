@@ -97,7 +97,7 @@ func gnfdCrossChainTx(key, chainId, to, url string, amount *big.Int, txCount int
 		Amount: sdk.NewIntFromBigInt(amount),
 	})
 
-	nonce, err := gnfdClient.GetNonce()
+	nonce, err := gnfdClient.GetNonce(context.Background())
 	if err != nil {
 		return err
 	}
@@ -170,6 +170,6 @@ func getTransactor(privateKey *ecdsa.PrivateKey, nonce uint64, chainID *big.Int,
 	f := int64(relayFee)
 	txOpts.Value = new(big.Int).Add(amount, big.NewInt(f))
 	txOpts.GasLimit = 4700000
-	txOpts.GasPrice = big.NewInt(20000000000)
+	txOpts.GasPrice = big.NewInt(10000000000)
 	return txOpts, nil
 }

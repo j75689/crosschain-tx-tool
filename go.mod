@@ -3,7 +3,7 @@ module github.com/alexgao001/crosschain-tx-tool
 go 1.19
 
 require (
-	github.com/bnb-chain/greenfield v0.2.3-0.20230711112213-f847ad5053fd
+	github.com/bnb-chain/greenfield v0.2.3
 	github.com/coinbase/rosetta-sdk-go/types v1.0.0
 	github.com/cosmos/cosmos-sdk v0.47.2
 	github.com/ethereum/go-ethereum v1.10.22
@@ -150,9 +150,10 @@ replace (
 	cosmossdk.io/api => github.com/bnb-chain/greenfield-cosmos-sdk/api v0.0.0-20230425074444-eb5869b05fe9
 	cosmossdk.io/math => github.com/bnb-chain/greenfield-cosmos-sdk/math v0.0.0-20230425074444-eb5869b05fe9
 	github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.23.0
-	github.com/cometbft/cometbft => github.com/bnb-chain/greenfield-cometbft v0.0.0-20230706104359-7fd423a5762d
-	github.com/cometbft/cometbft-db => github.com/bnb-chain/greenfield-cometbft-db v0.0.0-20230706092249-b0e93377dd4d
+	github.com/cometbft/cometbft => github.com/bnb-chain/greenfield-cometbft v0.0.2
+	github.com/cometbft/cometbft-db => github.com/bnb-chain/greenfield-cometbft-db v0.8.1-alpha.1
 	github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
-	github.com/cosmos/cosmos-sdk => github.com/bnb-chain/greenfield-cosmos-sdk v0.2.3-0.20230708022057-415c3959394c
-	github.com/cosmos/iavl => github.com/bnb-chain/greenfield-iavl v0.0.0-20230704034816-734af4bed8ae
+	github.com/cosmos/cosmos-sdk => github.com/bnb-chain/greenfield-cosmos-sdk v0.2.3
+	github.com/cosmos/iavl => github.com/bnb-chain/greenfield-iavl v0.20.1-alpha.1
+	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 )
